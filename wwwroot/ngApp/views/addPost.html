@@ -1,0 +1,12 @@
+﻿<p>Add Post</p>
+
+<form ng-submit="controller.savePost()">
+    <label>Topic</label><br />
+    <select ng-model="controller.topicId" ng-options="topics.title for topics in controller.topics"></select><br />
+
+    <label>Title</label><br />
+    <input type="text" ng-model="controller.post.title" /><br />
+    <label>Message</label><br />
+    <input type="text" ng-model="controller.post.message" /><br />
+    <input class="btn btn-primary" type="submit" value="create" />
+</form>

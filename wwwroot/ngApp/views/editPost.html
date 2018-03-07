@@ -1,0 +1,14 @@
+﻿<p>Edit Post</p>
+
+<form ng-submit="controller.savePost()">
+    <label>Topic</label><br />
+    <select ng-model="controller.post.category">
+        <option ng-repeat="topics in controller.topic">{{topics.topicName}}</option>
+    </select><br />
+
+    <label>Title</label><br />
+    <input type="text" value="{{controller.post.title}}" ng-model="controller.post.title" /><br />
+    <label>Message</label><br />
+    <input type="text" value="{{controller.post.message}}" ng-model="controller.post.message" /><br />
+    <input class="btn btn-primary" type="submit" value="create" />
+</form>

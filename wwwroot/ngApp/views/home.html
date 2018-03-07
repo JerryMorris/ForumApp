@@ -1,0 +1,28 @@
+﻿<p>Hello from the Home Page</p>
+
+<div class="bs-component">
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>Title</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="post in controller.posts">
+
+                <td>
+                    {{post.userId}}<br />
+                    <a href="/viewPost/{{post.id}}">{{post.title}}</a>
+                    <br />
+                    {{post.message}}<br />
+                    <a href="/editPost/{{post.id}}" class="btn btn-default btn-xs">Edit</a>
+                    <a href="/deletePost/{{post.id}}" class="btn btn-default btn-xs">Delete</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

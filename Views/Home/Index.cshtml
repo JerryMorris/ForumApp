@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="FF1">
+<head>
+    <title>Forum App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-uSbimwRPo7PKyTL6azsx1CcBce/X9Qg+wX1MAjNV1gAkSXYveZbZeMMyJghdsSol" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <base href="/" />
+</head>
+<body ng-controller="AccountController as account">
+    <div class="container-fluid">
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HiP4</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="/addPost"><span class="glyphicon glyphicon-pencil"></span> Post</a></li>
+                    <li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/login" ng-show="!account.isLoggedIn()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                    <li><a href="/admin" ng-show="account.getClaim('isAdmin')">Admin</a></li>
+                    <li><a href="/addTopic" ng-show="account.getClaim('isAdmin')">Add Topic</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div ng-show="account.isLoggedIn()">
+            Welcome {{account.getUserName()}}
+        </div>
+
+
+        <ng-view></ng-view>
+    </div>
+
+    <!--Library Files-->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-route/angular-route.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    <script src="~/ngApp/app.js"></script>
+    <script src="~/ngApp/services/postService.js"></script>
+    <script src="~/ngApp/services/replyService.js"></script>
+    <script src="~/ngApp/services/topicService.js"></script>
+    <script src="~/ngApp/controllers/addPostController.js"></script>
+    <script src="~/ngApp/controllers/addTopicController.js"></script>
+    <script src="~/ngApp/controllers/deletePostController.js"></script>
+    <script src="~/ngApp/controllers/deleteReplyController.js"></script>
+    <script src="~/ngApp/controllers/deleteTopicController.js"></script>
+    <script src="~/ngApp/controllers/editPostController.js"></script>
+    <script src="~/ngApp/controllers/editReplyController.js"></script>
+    <script src="~/ngApp/controllers/homeController.js"></script>
+    <script src="~/ngApp/controllers/viewPostController.js"></script>
+    <script src="~/ngApp/controllers/adminController.js"></script>
+
+
+
+    <script src="~/ngApp/controllers/accountController.js"></script>
+    <script src="~/ngApp/services/accountServices.js"></script>
+
+
+
+</body>
+</html>
