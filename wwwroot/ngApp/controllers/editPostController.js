@@ -17,6 +17,9 @@ var FF1;
                 this.postService.updatePost(this.post);
                 this.$location.path('/');
             };
+            EditPostController.prototype.cancel = function () {
+                this.$location.path('/');
+            };
             return EditPostController;
         }());
         Controllers.EditPostController = EditPostController;

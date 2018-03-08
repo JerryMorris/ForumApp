@@ -20,6 +20,9 @@
             this.$location.path('/');
 
         }
+        cancel() {
+            this.$location.path('/');
+        }
     }
 
 }
