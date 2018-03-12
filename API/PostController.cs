@@ -40,6 +40,31 @@ namespace FF1.API
         }
 
         // GET api/values/5
+        [HttpGet]
+        [Route("getallactiveposts")]
+        public IActionResult GetAllActivePosts()
+        {
+            var posts = _db.Post.Where(p => p.IsActive == true).ToList();
+            return Ok(posts);
+        }
+
+        [HttpGet("{topicid}")]
+        [Route("getpostbytopicid")]
+        public IActionResult getPostByTopicId(int topicId)
+        {
+            var posts = _db.Post.Where(p => p.TopicId == topicId).Where(p => p.IsActive == true).ToList();
+            return Ok(posts);
+        }
+
+        [HttpGet("{userSearch}")]
+        [Route("searchpost")]
+        public IActionResult searchPost(string userSearch)
+        {
+            var posts = _db.Post.Where(p => p.Title.Contains(userSearch)).Where(p => p.IsActive == true).ToList();
+            return Ok(posts);
+        }
+
+        // GET api/values/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

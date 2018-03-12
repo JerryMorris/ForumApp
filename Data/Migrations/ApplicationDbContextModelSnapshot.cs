@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using FF1.Data;
 
-namespace FF1.Data.Migrations
+namespace FF1.data.migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -81,6 +81,8 @@ namespace FF1.Data.Migrations
                     b.Property<DateTime>("TimeCreated");
 
                     b.Property<string>("Title");
+
+                    b.Property<int>("TopicId");
 
                     b.Property<string>("UserId");
 

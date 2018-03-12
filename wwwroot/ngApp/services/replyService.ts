@@ -28,12 +28,12 @@
         }
 
         getPostReplies(id) {
-            debugger;
+            
             return this.replyResource.GetPostReplies({ id });
         }
 
         getRepliesToReply(id) {
-            debugger;
+            
             return this.replyResource.getRepliesToReply({ id });
         }
 
@@ -42,7 +42,7 @@
         }
 
         updateReply(data) {
-            return this.replyResource.put(data).$promise;
+            return this.replyResource.update(data).$promise;
         }
 
         deleteReply(id) {

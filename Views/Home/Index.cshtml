@@ -22,12 +22,12 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <li><a href="/addPost"><span class="glyphicon glyphicon-pencil"></span> Post</a></li>
-                    <li>
+                    <li><a href="/search"><span class="glyphicon glyphicon-search"></span> Search</a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="/login" ng-show="!account.isLoggedIn()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                    <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     <li><a href="/admin" ng-show="account.getClaim('isAdmin')">Admin</a></li>
                     <li><a href="/addTopic" ng-show="account.getClaim('isAdmin')">Add Topic</a></li>
                 </ul>
@@ -62,6 +62,7 @@
     <script src="~/ngApp/controllers/editReplyController.js"></script>
     <script src="~/ngApp/controllers/homeController.js"></script>
     <script src="~/ngApp/controllers/viewPostController.js"></script>
+    <script src="~/ngApp/controllers/searchController.js"></script>
     <script src="~/ngApp/controllers/adminController.js"></script>
 
 

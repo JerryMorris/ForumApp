@@ -25,18 +25,16 @@ var FF1;
                 return this.replyResource.get({ id: id });
             };
             ReplyService.prototype.getPostReplies = function (id) {
-                debugger;
                 return this.replyResource.GetPostReplies({ id: id });
             };
             ReplyService.prototype.getRepliesToReply = function (id) {
-                debugger;
                 return this.replyResource.getRepliesToReply({ id: id });
             };
             ReplyService.prototype.saveReply = function (data) {
                 return this.replyResource.save(data).$promise;
             };
             ReplyService.prototype.updateReply = function (data) {
-                return this.replyResource.put(data).$promise;
+                return this.replyResource.update(data).$promise;
             };
             ReplyService.prototype.deleteReply = function (id) {
                 return this.replyResource.delete({ id: id });

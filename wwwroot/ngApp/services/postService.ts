@@ -2,10 +2,10 @@
 
 
     export class PostService {
-        public postresource;
+        public postResource;
 
         constructor(private $resource: ng.resource.IResourceService) {
-            this.postresource = $resource('/api/post/:id', null, {
+            this.postResource = $resource('/api/post/:id', null, {
                 update: {
                     method: 'PUT',
                     url: '/api/post/put'
@@ -14,33 +14,62 @@
                     method: 'GET',
                     url: '/api/post/getuserposts',
                     isArray: true
+                },
+                getPostByTopicId: {
+                    method: 'GET',
+                    url: '/api/post/getpostbytopicid',
+                    isArray: true
+                },
+                getAllActivePosts: {
+                    method: 'GET',
+                    url: '/api/post/getallactiveposts',
+                    isArray: true
+                },
+                searchPost: {
+                    method: 'GET',
+                    url: '/api/post/searchpost',
+                    isArray: true
                 }
+
             });
         }
 
         getAllPost() {
-            return this.postresource.query();
+            return this.postResource.query();
         }
 
         getPost(id) {
-            return this.postresource.get({ id });
+            return this.postResource.get({ id });
         }
 
         getUserPosts() {
+            
+            return this.postResource.getUserPosts();
+        }
+
+        getPostByTopicId(topicId) {
+            return this.postResource.getPostByTopicId({ topicId });
+        }
+
+        getAllActivePosts() {
+            return this.postResource.getAllActivePosts();
+        }
+
+        searchPost(userSearch) {
             debugger;
-            return this.postresource.getUserPosts();
+            return this.postResource.searchPost({ userSearch });
         }
 
         savePost(data) {
-            return this.postresource.save(data).$promise;
+            return this.postResource.save(data).$promise;
         }
 
         updatePost(data) {
-            this.postresource.update(data).$promise;
+            this.postResource.update(data);
         }
 
         deletePost(id) {
-            return this.postresource.delete({ id });
+            return this.postResource.delete({ id });
         }
 
 

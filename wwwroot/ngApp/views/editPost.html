@@ -1,6 +1,6 @@
 ﻿<p>Edit Post</p>
 
-<form ng-submit="controller.savePost()">
+<form ng-submit="controller.updatePost()">
     <label>Topic</label><br />
     <select ng-model="controller.post.category">
         <option ng-repeat="topics in controller.topic">{{topics.topicName}}</option>

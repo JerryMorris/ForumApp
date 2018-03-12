@@ -38,7 +38,7 @@
                         <div class="col-md-12 col-md-push-10">
                             User: {{reply.userID}}<br />
                             Reply: {{reply.message}}<br />
-                            <button type="button" class="btn btn-default btn-sm"  ">
+                            <button type="button" class="btn btn-default btn-sm"  ng-click="controller.likeReply()">
                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like {{controller.reply.likes}}
                             </button>
                             <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#demo{{reply.id}}" ng-click="controller.getRepliesToReply(reply.id)"><span class="glyphicon glyphicon-comment"></span> Comment {{controller.repliedLength}}</button>

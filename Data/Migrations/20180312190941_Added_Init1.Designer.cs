@@ -8,8 +8,8 @@ using FF1.Data;
 namespace FF1.data.migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180228192233_Added_Intial")]
-    partial class Added_Intial
+    [Migration("20180312190941_Added_Init1")]
+    partial class Added_Init1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,6 +82,8 @@ namespace FF1.data.migrations
                     b.Property<DateTime>("TimeCreated");
 
                     b.Property<string>("Title");
+
+                    b.Property<int>("TopicId");
 
                     b.Property<string>("UserId");
 

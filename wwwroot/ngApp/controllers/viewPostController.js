@@ -33,6 +33,15 @@ var FF1;
             ViewPostController.prototype.getRepliesToReply = function (id) {
                 this.replied = this.replyService.getRepliesToReply(id);
             };
+            ViewPostController.prototype.likePost = function () {
+                this.post.likes = this.post.likes + 1;
+                this.postService.updatePost(this.post);
+            };
+            ViewPostController.prototype.likeReply = function () {
+                debugger;
+                this.reply.likes = this.reply.likes + 1;
+                this.replyService.updateReply(this.reply);
+            };
             return ViewPostController;
         }());
         Controllers.ViewPostController = ViewPostController;

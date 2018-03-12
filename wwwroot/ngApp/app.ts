@@ -60,6 +60,11 @@
                 controller: FF1.Controllers.AdminController,
                 controllerAs: 'controller'
             })
+            .when('/search', {
+                templateUrl: '/ngApp/views/search.html',
+                controller: FF1.Controllers.SearchController,
+                controllerAs: 'controller'
+            })
             .when('/viewPost/:id', {
                 templateUrl: '/ngApp/views/viewPost.html',
                 controller: FF1.Controllers.ViewPostController,

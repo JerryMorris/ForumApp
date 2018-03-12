@@ -13,7 +13,7 @@ var FF1;
             EditPostController.prototype.getPost = function () {
                 this.post = this.postService.getPost(this.postId);
             };
-            EditPostController.prototype.upDatePost = function () {
+            EditPostController.prototype.updatePost = function () {
                 this.postService.updatePost(this.post);
                 this.$location.path('/');
             };

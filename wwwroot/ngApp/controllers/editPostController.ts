@@ -15,9 +15,11 @@
             this.post = this.postService.getPost(this.postId);
         }
 
-        upDatePost() {
+        updatePost() {
+            
             this.postService.updatePost(this.post);
-            this.$location.path('/');
+                this.$location.path('/');
+            
 
         }
         cancel() {

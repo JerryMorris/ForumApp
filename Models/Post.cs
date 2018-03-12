@@ -13,6 +13,8 @@ namespace FF1.Models
         public int Likes { get; set; }
         public int Replys { get; set; }
         public string UserId { get; set; }
-          
+        public int TopicId { get; set; }
+
+
     }
 }

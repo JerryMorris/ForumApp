@@ -5,7 +5,7 @@ var FF1;
         var PostService = (function () {
             function PostService($resource) {
                 this.$resource = $resource;
-                this.postresource = $resource('/api/post/:id', null, {
+                this.postResource = $resource('/api/post/:id', null, {
                     update: {
                         method: 'PUT',
                         url: '/api/post/put'
@@ -14,27 +14,51 @@ var FF1;
                         method: 'GET',
                         url: '/api/post/getuserposts',
                         isArray: true
+                    },
+                    getPostByTopicId: {
+                        method: 'GET',
+                        url: '/api/post/getpostbytopicid',
+                        isArray: true
+                    },
+                    getAllActivePosts: {
+                        method: 'GET',
+                        url: '/api/post/getallactiveposts',
+                        isArray: true
+                    },
+                    searchPost: {
+                        method: 'GET',
+                        url: '/api/post/searchpost',
+                        isArray: true
                     }
                 });
             }
             PostService.prototype.getAllPost = function () {
-                return this.postresource.query();
+                return this.postResource.query();
             };
             PostService.prototype.getPost = function (id) {
-                return this.postresource.get({ id: id });
+                return this.postResource.get({ id: id });
             };
             PostService.prototype.getUserPosts = function () {
+                return this.postResource.getUserPosts();
+            };
+            PostService.prototype.getPostByTopicId = function (topicId) {
+                return this.postResource.getPostByTopicId({ topicId: topicId });
+            };
+            PostService.prototype.getAllActivePosts = function () {
+                return this.postResource.getAllActivePosts();
+            };
+            PostService.prototype.searchPost = function (userSearch) {
                 debugger;
-                return this.postresource.getUserPosts();
+                return this.postResource.searchPost({ userSearch: userSearch });
             };
             PostService.prototype.savePost = function (data) {
-                return this.postresource.save(data).$promise;
+                return this.postResource.save(data).$promise;
             };
             PostService.prototype.updatePost = function (data) {
-                this.postresource.update(data).$promise;
+                this.postResource.update(data);
             };
             PostService.prototype.deletePost = function (id) {
-                return this.postresource.delete({ id: id });
+                return this.postResource.delete({ id: id });
             };
             return PostService;
         }());

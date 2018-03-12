@@ -42,6 +42,24 @@
         getRepliesToReply(id) {
             this.replied = this.replyService.getRepliesToReply(id);
         }
+
+        likePost() {
+
+            this.post.likes = this.post.likes + 1;
+            this.postService.updatePost(this.post);
+
+           
+
+        }
+
+        likeReply() {
+            debugger;
+            this.reply.likes = this.reply.likes + 1;
+            this.replyService.updateReply(this.reply);
+
+            
+
+        }
     }
 
 }
